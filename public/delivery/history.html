@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery History - medAssistNow</title>
+    <link rel="stylesheet" href="/delivery/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="/delivery/index.html">🏠 Orders</a></li>
+        <li><a href="/delivery/history.html" class="login-btn">📜 History</a></li>
+        <li><a id="logoutBtn" class="login-btn" href="#">🚪 Logout</a></li>
+    </ul>
+</nav>
+
+<section class="page">
+    <h1>Delivered Orders</h1>
+    <div id="historyList"></div>
+</section>
+
+<script src="/delivery/script.js"></script>
+
+<script>
+async function loadDeliveryHistory() {
+    const token = localStorage.getItem("token");
+
+    const res = await fetch("/api/order/history/delivery", {
+        headers: { "Authorization": "Bearer " + token }
+    });
+
+    const data = await res.json();
+
+    const container = document.getElementById("historyList");
+
+    if (!data.length) {
+        container.innerHTML = "<p>No delivered orders yet.</p>";
+        return;
+    }
+
+    container.innerHTML = data.map(o => `
+        <div class="product-card">
+            <h3>Order #${o._id}</h3>
+
+            <p><b>Status:</b> ${o.status}</p>
+            
+            <p><b>Delivered:</b> ${o.deliveredAt ? 
+                new Date(o.deliveredAt).toLocaleString() : "-"}</p>
+            
+            <ul>
+                ${o.items.map(i => `<li>${i.medicineName} × ${i.quantity}</li>`).join("")}
+            </ul>
+
+            <p><b>Location:</b></p>
+            <p>
+                ${o.userLocation ? 
+                    `${o.userLocation.lat}, ${o.userLocation.lon}` : 
+                    o.userAddress}
+            </p>
+        </div>
+    `).join("");
+}
+
+window.addEventListener("DOMContentLoaded", loadDeliveryHistory);
+</script>
+
+</body>
+</html>

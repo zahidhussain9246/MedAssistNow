@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup - medAssistNow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/user/style.css">
+
+    <!-- Leaflet CSS (needed globally) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR (common across all pages) -->
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+
+    <ul class="nav-menu">
+        <li><a href="home.html"><span>🏠</span>Home</a></li>
+        <li><a href="cart.html"><span>🛒</span>Cart</a></li>
+        <li><a href="pharmacies.html"><span>📍</span>Pharmacies</a></li>
+
+        <li><a id="loginBtn" class="login-btn" href="login.html">
+            <span>👤</span>Log In
+        </a></li>
+
+        <li><a id="logoutBtn" class="login-btn" style="display:none;">
+            <span>🚪</span>Logout
+        </a></li>
+    </ul>
+</nav>
+
+
+<!-- POPUPS (REQUIRED FOR JS TO WORK) -->
+<!-- LOGOUT CONFIRMATION -->
+<div id="logoutConfirmBox" class="confirm-box" style="display:none;">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- LOGIN SUCCESS -->
+<div id="loginSuccessBox" class="confirm-box" style="display:none;">
+    <div class="confirm-content">
+        <h2>Login Successful!</h2>
+        <div class="confirm-buttons">
+            <button id="loginSuccessOk">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box" style="display:none;">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <div class="confirm-buttons">
+            <button id="errorOk">OK</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- MAIN LOGIN PAGE CONTENT -->
+<section id="login" class="page visible">
+    <h1>Select Login / Signup Type</h1>
+
+    <div class="login-cards">
+        <div class="login-card">
+            <div class="icon">👤</div>
+            <h2>User</h2>
+            <button onclick="showLoginForm('user')" class="login-btn-small">Login</button>
+            <button onclick="showSignupForm('user')" class="signup-btn-small">Signup</button>
+        </div>
+
+        <div class="login-card">
+            <div class="icon">💊</div>
+            <h2>Pharmacist</h2>
+            <button onclick="showLoginForm('pharmacist')" class="login-btn-small">Login</button>
+            <button onclick="showSignupForm('pharmacist'); getCurrentLocationForSignup();" class="signup-btn-small">
+    Signup
+</button>
+
+        </div>
+
+        <div class="login-card">
+            <div class="icon">🚚</div>
+            <h2>Delivery Partner</h2>
+            <button onclick="showLoginForm('delivery')" class="login-btn-small">Login</button>
+            <button onclick="showSignupForm('delivery')" class="signup-btn-small">Signup</button>
+        </div>
+    </div>
+
+
+    <!-- LOGIN FORM -->
+    <div id="roleLoginForm" class="login-box" style="display:none;">
+        <h2 id="roleTitle"></h2>
+
+        <div class="form-row">
+            <label>Email:</label>
+            <input type="email" id="loginEmail" placeholder="Email">
+        </div>
+
+        <div class="form-row">
+            <label>Password:</label>
+            <input type="password" id="loginPassword" placeholder="Password">
+        </div>
+
+        <button onclick="loginUser()">Login</button>
+        <p class="back-text" onclick="backToRoleCards()">← Back</p>
+    </div>
+
+
+    <!-- SIGNUP FORM -->
+    <div id="roleSignupForm" class="login-box" style="display:none;">
+        <h2 id="signupTitle"></h2>
+
+        <div id="signupFields"></div>
+
+        <button onclick="signupUser()">Signup</button>
+        <p class="back-text" onclick="backToRoleCards()">← Back</p>
+    </div>
+
+</section>
+
+
+<!-- MAIN SCRIPT -->
+<script src="/user/script.js"></script>
+</body>
+</html>

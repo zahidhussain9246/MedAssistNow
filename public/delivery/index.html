@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+
+    <ul class="nav-menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="earnings.html">💲 Earnings</a></li>
+        <li><a href="shifts.html">📅 Shifts</a></li>
+        <li><a href="/delivery/history.html" class="login-btn">📜 History</a></li>
+        <li><a id="logoutBtn" class="logout-btn" href="#">📦 Logout</a></li>
+    </ul>
+</nav>
+
+<section class="page">
+
+    <!-- ✅ AVAILABLE READY ORDERS -->
+    <h2>Available Orders (Ready to Accept)</h2>
+    <div id="availableOrders" class="order-list">
+        <p>Loading available orders...</p>
+    </div>
+
+    <hr>
+
+    <!-- ✅ ACTIVE DELIVERY -->
+    <h2>My Active Delivery</h2>
+    <div id="activeOrders" class="order-list">
+        <p>No active delivery</p>
+    </div>
+
+</section>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+<!-- delivery JS -->
+<script src="script.js"></script>
+</body>
+</html>

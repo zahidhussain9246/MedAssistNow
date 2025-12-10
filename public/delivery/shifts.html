@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="earnings.html">💲 Earnings</a></li>
+        <li><a href="shifts.html">📅 Shifts</a></li>
+        <li><a href="/delivery/history.html" class="login-btn">📜 History</a></li>
+
+        <!-- IMPORTANT: this is the logout link -->
+        <li><a id="logoutBtn" class="logout-btn" href="#">📦 Logout</a></li>
+    </ul>
+</nav>
+
+<section class="big-heading">
+    <h1>Upcoming Shifts</h1>
+</section>
+
+<section class="delivery-container">
+
+    <div class="shift-card">🕒 Monday — 10 AM to 6 PM</div>
+    <div class="shift-card">🕒 Wednesday — 10 AM to 6 PM</div>
+    <div class="shift-card">🕒 Saturday — 12 PM to 8 PM</div>
+
+</section>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

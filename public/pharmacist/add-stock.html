@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Stock</title>
+
+    <link rel="stylesheet" href="/pharmacist/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Pharmacy Portal</div>
+    <ul class="nav-menu">
+        <li><a href="/pharmacist/index.html">🏠 Home</a></li>
+        <li><a href="/pharmacist/search.html">🔍 Search</a></li>
+        <li><a href="/pharmacist/add-stock.html" class="active">📦 Add Stock</a></li>
+        <li><a href="/pharmacist/orders.html">🛒 Orders</a></li>
+        <li><a href="/pharmacist/performance.html">📈 Performance</a></li>
+        <li><a id="logoutBtn" class="login-btn" style="display:none;"><span>🚪</span>Logout</a></li>
+    </ul>
+</nav>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+
+<h2 class="page">Add Medicine Stock</h2>
+
+<div class="login-box">
+  <input id="medicineName" type="text" placeholder="Medicine Name">
+  <input id="quantity" type="number" placeholder="Quantity">
+  <input id="batchNo" type="text" placeholder="Batch Number">
+
+  <!-- 💰 price + 🖼 image URL -->
+  <input id="price" type="number" step="0.01" placeholder="Price (₹)">
+  <input id="image" type="text" placeholder="Image URL">
+
+  <button id="addStockBtn">Add Stock</button>
+</div>
+
+
+<script src="/pharmacist/script.js"></script>
+</body>
+</html>

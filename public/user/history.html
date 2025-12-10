@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Order History - medAssistNow</title>
+    <link rel="stylesheet" href="/user/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="/user/home.html">🏠 Home</a></li>
+        <li><a href="/user/cart.html">🛒 Cart</a></li>
+        <li><a href="/user/history.html" class="login-btn">📜 History</a></li>
+        <li><a id="loginBtn" class="login-btn" href="/user/login.html"><span>👤</span>Log In</a></li>
+        <li><a id="logoutBtn" class="login-btn" style="display:none;"><span>🚪</span>Logout</a></li>
+    </ul>
+</nav>
+
+<section class="page">
+    <h1>Your Order History</h1>
+    <div id="historyList"></div>
+</section>
+
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+<script src="/user/script.js"></script>
+
+<script>
+async function loadUserHistory() {
+    const token = localStorage.getItem("token");
+
+    const res = await fetch("/api/order/history/user", {
+        headers: { "Authorization": "Bearer " + token }
+    });
+
+    const data = await res.json();
+
+    const container = document.getElementById("historyList");
+
+    if (!data.length) {
+        container.innerHTML = "<p>No order history found.</p>";
+        return;
+    }
+
+    container.innerHTML = data.map(o => `
+        <div class="product-card">
+            <h3>Order #${o._id}</h3>
+            <p><b>Status:</b> ${o.status}</p>
+            <p><b>Placed:</b> ${new Date(o.orderedAt).toLocaleString()}</p>
+            <ul>
+                ${o.items.map(i => `<li>${i.medicineName} × ${i.quantity}</li>`).join("")}
+            </ul>
+        </div>
+    `).join("");
+}
+
+window.addEventListener("DOMContentLoaded", loadUserHistory);
+</script>
+
+</body>
+</html>

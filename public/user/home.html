@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - medAssistNow</title>
+
+    <link rel="stylesheet" href="/user/style.css">
+    <link rel="stylesheet" href="/user/home.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="/user/home.html" class="active"><span>🏠</span>Home</a></li>
+        <li><a href="/user/cart.html"><span>🛒</span>Cart</a></li>
+        <li><a href="/user/pharmacies.html"><span>📍</span>Pharmacies</a></li>
+        <li><a href="/user/history.html" class="login-btn">📜 Orders</a></li>
+        <li><a id="loginBtn" class="login-btn" href="/user/login.html"><span>👤</span>Log In</a></li>
+        <li><a id="logoutBtn" class="login-btn" style="display:none;"><span>🚪</span>Logout</a></li>
+    </ul>
+</nav>
+
+
+<!-- POPUPS (UNCHANGED) -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Order Medicines Easily 💊</h1>
+        <p>Fast delivery from verified local pharmacies</p>
+
+        <div class="hero-actions">
+            <button class="cta-btn" onclick="document.getElementById('homeSearchBox').focus()">
+                🔍 Search Medicines
+            </button>
+            <button class="cta-btn-secondary" onclick="window.location='/user/pharmacies.html'">
+                📍 Find Pharmacies
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<section class="page">
+
+    <!-- SEARCH BAR -->
+    <h1>What are you looking for?</h1>
+
+    <div class="search-bar">
+        <span class="icon">🔍</span>
+        <input type="text" id="homeSearchBox" placeholder="Search for Medicines" onkeyup="searchOnHome()">
+        <button onclick="searchOnHome()">Search</button>
+    </div>
+
+    <!-- AVAILABLE MEDICINES MOVED HERE -->
+    <h2 class="section-title">Available Medicines</h2>
+    <div id="homeResults" class="product-grid"></div>
+
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature-card-big">
+            <div class="feature-icon">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Your medicines delivered in under 60 minutes</p>
+        </div>
+
+        <div class="feature-card-big">
+            <div class="feature-icon">📍</div>
+            <h3>Nearby Pharmacies</h3>
+            <p>Find trusted stores close to your location</p>
+        </div>
+
+        <div class="feature-card-big">
+            <div class="feature-icon">✔️</div>
+            <h3>Verified Suppliers</h3>
+            <p>All pharmacies are registered and licensed</p>
+        </div>
+    </div>
+
+
+    <!-- POPULAR CATEGORIES -->
+    <h2 class="section-title">Popular Categories</h2>
+
+    <div class="category-grid">
+        <div class="category-box" onclick="searchCategory('Pain')">Pain Relief</div>
+        <div class="category-box" onclick="searchCategory('Antibiotic')">Antibiotics</div>
+        <div class="category-box" onclick="searchCategory('Vitamin')">Vitamins</div>
+        <div class="category-box" onclick="searchCategory('Diabetes')">Diabetes Care</div>
+    </div>
+
+
+    <!-- RECENT ORDERS -->
+    <h2 class="section-title">Recent Orders</h2>
+    <div id="recentOrders"></div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    © 2025 medAssistNow • Privacy • Terms • Help
+</footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/user/script.js"></script>
+
+<script>
+    function searchCategory(q) {
+        document.getElementById("homeSearchBox").value = q;
+        searchOnHome();
+    }
+
+    if (typeof loadRecentOrders === "function") {
+        loadRecentOrders();
+    }
+</script>
+
+</body>
+</html>

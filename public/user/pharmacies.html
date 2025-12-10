@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacies - medAssistNow</title>
+
+    <link rel="stylesheet" href="/user/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="home.html"><span>🏠</span>Home</a></li>
+        <li><a href="cart.html"><span>🛒</span>Cart</a></li>
+        <li><a href="pharmacies.html"><span>📍</span>Pharmacies</a></li>
+        <li><a id="loginBtn" class="login-btn" href="login.html"><span>👤</span>Log In</a></li>
+        <li><a id="logoutBtn" class="login-btn" style="display:none;"><span>🚪</span>Logout</a></li>
+    </ul>
+</nav>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+
+<section class="page">
+    <h1>Pharmacies Near Me</h1>
+    <button onclick="locatePharmacies()">Find Pharmacies</button>
+    <div id="map"></div>
+</section>
+
+<script src="/user/script.js"></script>
+</body>
+</html>

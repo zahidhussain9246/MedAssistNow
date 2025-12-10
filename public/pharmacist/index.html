@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Portal</title>
+
+    <link rel="stylesheet" href="/pharmacist/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Pharmacy Portal</div>
+    <ul class="nav-menu">
+        <li><a >🏠 Home</a></li>
+        <li><a href="/pharmacist/search.html">🔍 Search</a></li>
+        <li><a href="/pharmacist/add-stock.html">📦 Add Stock</a></li>
+        <li><a href="/pharmacist/orders.html">🛒 Orders</a></li>
+        <li><a href="/pharmacist/performance.html">📈 Performance</a></li>
+        <li><a id="logoutBtn" class="login-btn" style="display:none;"><span>🚪</span>Logout</a></li>
+    </ul>
+</nav>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+<h1 style="margin-left:40px;">Welcome, Pharmacist!</h1>
+
+<script src="/pharmacist/script.js"></script>
+</body>
+</html>

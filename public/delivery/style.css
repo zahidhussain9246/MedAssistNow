@@ -1,0 +1,229 @@
+/* ------------------------------
+   GLOBAL (same as first style)
+------------------------------ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f6f6;
+}
+
+h1 {
+    margin-left: 250px;
+    font-family: serif;
+}
+
+/* Generic page padding if needed */
+.page {
+    padding: 40px;
+}
+
+/* ------------------------------
+   NAVBAR (same pill style)
+------------------------------ */
+.navbar {
+    background: #ffffff;
+    color: #00897B;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #009378;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    background: white;
+    gap: 6px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li.active a {
+    background: #ccc;
+    color: #009378;
+}
+
+/* Logout link in navbar */
+.logout-btn {
+    color: #009378;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    color: #005a49;
+}
+
+/* ------------------------------
+   DELIVERY PAGE HEADINGS / LAYOUT
+------------------------------ */
+.big-heading {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.big-heading h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-left: 0;   /* center heading – override global h1 */
+    font-family: serif;
+}
+
+/* main content container for delivery pages */
+.delivery-container {
+    width: 60%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cards used on delivery home, earnings, shifts */
+.delivery-card,
+.shift-card,
+.earnings-box {
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.shift-card {
+    font-size: 20px;
+}
+
+/* Buttons on cards / forms */
+.action-btn {
+    background: #00897B;
+    color: white;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.action-btn:hover {
+    background: #00695C;
+}
+
+/* Form elements on settings / contact */
+textarea,
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* ------------------------------
+   POPUP OVERLAY & CONTENT
+   (matches first CSS style)
+------------------------------ */
+.confirm-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.confirm-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Buttons inside popup */
+.confirm-buttons {
+    margin-top: 18px;
+}
+
+.confirm-buttons button,
+#errorOk {
+    margin: 10px 5px;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#confirmLogoutYes {     
+    background: #e63946;
+    color: white;
+}
+
+#confirmLogoutNo {
+    background: #ccc;
+    color: #000;
+}
+
+#errorOk {
+    background: #ff3b30;
+    color: white;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.order-card h3 {
+    margin: 0 0 10px;
+}
+
+.btn-accept {
+    margin-top: 10px;
+    background: #2196f3;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}

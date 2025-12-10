@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">medAssistNow</div>
+    <ul class="nav-menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li class="active"><a href="earnings.html">💲 Earnings</a></li>
+        <li><a href="shifts.html">📅 Shifts</a></li>
+        <li><a href="/delivery/history.html" class="login-btn">📜 History</a></li>
+
+        <!-- IMPORTANT: this is the logout link -->
+        <li><a id="logoutBtn" class="logout-btn" href="#">📦 Logout</a></li>
+    </ul>
+</nav>
+
+<section class="big-heading">
+    <h1>Your Earnings</h1>
+</section>
+
+<div class="earnings-summary">
+  <h2>Today's Earnings: ₹<span id="todayEarnings">0</span></h2>
+  <h3>Today's Deliveries: <span id="todayDeliveries">0</span></h3>
+  <h3>This Week's Earnings: ₹<span id="weekEarnings">0</span></h3>
+  <h3>Lifetime Earnings: ₹<span id="lifetimeEarnings">0</span></h3>
+</div>
+
+<div id="earningsList"></div>
+
+<!-- LOGOUT CONFIRM POPUP -->
+<div id="logoutConfirmBox" class="confirm-box">
+    <div class="confirm-content">
+        <h2>Are you sure you want to logout?</h2>
+        <div class="confirm-buttons">
+            <button id="confirmLogoutYes">Yes</button>
+            <button id="confirmLogoutNo">No</button>
+        </div>
+    </div>
+</div>
+
+<!-- ERROR POPUP -->
+<div id="errorPopup" class="confirm-box">
+    <div class="confirm-content">
+        <h2 id="errorMessage">Error</h2>
+        <button id="errorOk">OK</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
